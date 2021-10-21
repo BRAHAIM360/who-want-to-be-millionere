@@ -447,7 +447,7 @@ function App() {
           <>
             <h1 className="endText">
               {" "}
-              Vous avez gangner {earned}{" "}
+              Vous avez gagné {earned}{" "}
               <div
                 className="replay"
                 onClick={() => {
