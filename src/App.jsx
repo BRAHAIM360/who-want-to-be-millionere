@@ -171,7 +171,7 @@ const data = [
     answers: [
       {
         text: "Le Jeu de l’amour et du hasard",
-        correct: false,
+        correct: true,
         tag: "A",
       },
       {
@@ -186,7 +186,7 @@ const data = [
       },
       {
         text: "Les Femmes savantes",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
@@ -207,12 +207,12 @@ const data = [
       },
       {
         text: "la Première Guerre mondiale.",
-        correct: false,
+        correct: true,
         tag: "C",
       },
       {
         text: "la Seconde Guerre mondiale.",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
@@ -249,7 +249,7 @@ const data = [
     answers: [
       {
         text: "Elles ont été choisies pour entrer au Panthéon.",
-        correct: false,
+        correct: true,
         tag: "A",
       },
       {
@@ -264,7 +264,7 @@ const data = [
       },
       {
         text: "Elles se sont illustrées par des actes de résistance pendant la Seconde Guerre mondiale.",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
@@ -275,7 +275,7 @@ const data = [
     answers: [
       {
         text: "courrier d’entreprise à distribution exceptionnelle",
-        correct: false,
+        correct: true,
         tag: "A",
       },
       {
@@ -290,7 +290,7 @@ const data = [
       },
       {
         text: "courrier exceptionnel distribué en express",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
@@ -301,7 +301,7 @@ const data = [
     answers: [
       {
         text: "le Taj Mahal",
-        correct: false,
+        correct: true,
         tag: "A",
       },
       {
@@ -316,7 +316,7 @@ const data = [
       },
       {
         text: "Pergame",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
@@ -337,12 +337,12 @@ const data = [
       },
       {
         text: "Stanley Kubrick",
-        correct: false,
+        correct: true,
         tag: "C",
       },
       {
         text: "Steven Spielberg",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
@@ -358,7 +358,7 @@ const data = [
       },
       {
         text: "l’agora",
-        correct: false,
+        correct: true,
         tag: "B",
       },
       {
@@ -368,7 +368,7 @@ const data = [
       },
       {
         text: "le forum",
-        correct: true,
+        correct: false,
         tag: "D",
       },
     ],
