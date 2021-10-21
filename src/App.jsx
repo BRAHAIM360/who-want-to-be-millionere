@@ -1,4 +1,4 @@
-import "./app.css";
+import "./App.css";
 import React, { useEffect, useMemo, useState } from "react";
 import Quiz from "./components/quiz";
 import Timer from "./components/Timer";
@@ -297,25 +297,25 @@ const data = [
   },
   {
     id: 12,
-    question: "Lequel de ces États ne fait pas partie de l’Union européenne ?",
+    question: "Parmi ces sites, inscrits au patrimoine mondial de l’Unesco, lequel abrite un mausolée ?",
     answers: [
       {
-        text: "Croatie",
+        text: "le Taj Mahal",
         correct: false,
         tag: "A",
       },
       {
-        text: "Lituanie",
+        text: "l’Alhambra",
         correct: false,
         tag: "B",
       },
       {
-        text: "Malte",
+        text: "Persépolis",
         correct: false,
         tag: "C",
       },
       {
-        text: "Norvège",
+        text: "Pergame",
         correct: true,
         tag: "D",
       },
@@ -447,7 +447,7 @@ function App() {
           <>
             <h1 className="endText">
               {" "}
-              You Earned {earned}{" "}
+              Vous avez gangner {earned}{" "}
               <div
                 className="replay"
                 onClick={() => {
@@ -456,7 +456,7 @@ function App() {
                   letsPlay()
                 }}
               >
-                Replay
+                Rejoué
               </div>
             </h1>
           </>
