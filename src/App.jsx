@@ -14,22 +14,22 @@ const data = [
     question: "Dans quel pays peut-on trouver la Catalogne, l’Andalousie et la Castille ?",
     answers: [
       {
-        text: "Phone",
+        text: "Portugal",
         correct: false,
         tag: "A",
       },
       {
-        text: "Watches",
+        text: "Espagne",
         correct: true,
         tag: "B",
       },
       {
-        text: "Food",
+        text: "France",
         correct: false,
         tag: "C",
       },
       {
-        text: "Cosmetic",
+        text: "Angleterre",
         correct: false,
         tag: "D",
       },
@@ -37,25 +37,25 @@ const data = [
   },
   {
     id: 2,
-    question: "When did the website `Facebook` launch?",
+    question: "Quelle est la capitale du Qatar ?",
     answers: [
       {
-        text: "2004",
+        text: "Doha",
         correct: true,
         tag: "A",
       },
       {
-        text: "2005",
+        text: "Abu Dhabi",
         correct: false,
         tag: "B",
       },
       {
-        text: "2006",
+        text: "Dubaï",
         correct: false,
         tag: "C",
       },
       {
-        text: "2007",
+        text: "Amman",
         correct: false,
         tag: "D",
       },
@@ -63,25 +63,337 @@ const data = [
   },
   {
     id: 3,
-    question: "Who played the character of harry potter in movie?",
+    question: "Quelle était à l’origine la fonction de Facebook ?",
     answers: [
       {
-        text: "Johnny Deep",
-        correct: false,
+        text: "un site de rencontres",
+        correct: true,
         tag: "A",
       },
       {
-        text: "Leonardo Di Caprio",
+        text: "un réseau social pour cuisinier",
         correct: false,
         tag: "B",
       },
       {
-        text: "Denzel Washington",
+        text: "album photo en ligne",
         correct: false,
         tag: "C",
       },
       {
-        text: "Daniel Red Cliff",
+        text: "un réseau social estudiantin",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 4,
+    question: "Quel président américain a démissionné après le scandale du Watergate en 1974 ?",
+    answers: [
+      {
+        text: "Dwight D. Eisenhower",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "George H. W. Bush",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "Gerald Ford",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "Richard Nixon",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 5,
+    question: "Laquelle des inventions suivantes doit-on à Alfred Nobel ?",
+    answers: [
+      {
+        text: "la dynamite",
+        correct: true,
+        tag: "A",
+      },
+      {
+        text: "la machine à vapeur",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "l’électricité",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "le téléphone",
+        correct: false,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 6,
+    question: "Qui est le réalisateur du film Avatar (2009) ?",
+    answers: [
+      {
+        text: "George Lucas",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "James Cameron",
+        correct: true,
+        tag: "B",
+      },
+      {
+        text: "Luc Besson",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "Ron Howard",
+        correct: false,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 7,
+    question: "Parmi ces quatre pièces de théâtre, laquelle n’a pas été écrite par Molière ?",
+    answers: [
+      {
+        text: "Le Jeu de l’amour et du hasard",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "Le Malade imaginaire",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "Le Tartuffe",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "Les Femmes savantes",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 8,
+    question: "Le Chemin des Dames est une bataille de :",
+    answers: [
+      {
+        text: "la guerre de Cent Ans.",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "la guerre de 1870.",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "la Première Guerre mondiale.",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "la Seconde Guerre mondiale.",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 9,
+    question: "En France, la taxe foncière constitue un impôt perçu au profit :",
+    answers: [
+      {
+        text: "de la Sécurité sociale.",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "de l’État.",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "de l’Union européenne.",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "des collectivités territoriales.",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 10,
+    question: "Quel est le point commun entre ces quatre personnalités ? Geneviève De Gaulle Anthonioz – Marie Curie – Germaine Tillion – Sophie Berthelot",
+    answers: [
+      {
+        text: "Elles ont été choisies pour entrer au Panthéon.",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "Elles ont fait d’importantes découvertes scientifiques.",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "Elles ont occupé un portefeuille ministériel.",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "Elles se sont illustrées par des actes de résistance pendant la Seconde Guerre mondiale.",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 11,
+    question: "Que signifie l’abréviation « Cedex » ?",
+    answers: [
+      {
+        text: "courrier d’entreprise à distribution exceptionnelle",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "courrier entre départements exclus",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "courrier envoyé aux départements en exclusivité",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "courrier exceptionnel distribué en express",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 12,
+    question: "Lequel de ces États ne fait pas partie de l’Union européenne ?",
+    answers: [
+      {
+        text: "Croatie",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "Lituanie",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "Malte",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "Norvège",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 13,
+    question: "Qui a réalisé le film 2001 : l’Odyssée de l’espace ?",
+    answers: [
+      {
+        text: "George Lucas",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "Luc Besson",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "Stanley Kubrick",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "Steven Spielberg",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 14,
+    question: "Quel endroit était la principale place publique administrative, religieuse et commerciale des villes grecques antiques ?",
+    answers: [
+      {
+        text: "l’acropole",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "l’agora",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "la boulê",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "le forum",
+        correct: true,
+        tag: "D",
+      },
+    ],
+  },
+  {
+    id: 15,
+    question: "Lequel de ces pays n’a pas de façade maritime avec la mer Noire ?",
+    answers: [
+      {
+        text: "la Bulgarie",
+        correct: false,
+        tag: "A",
+      },
+      {
+        text: "la Géorgie",
+        correct: false,
+        tag: "B",
+      },
+      {
+        text: "l’Albanie",
+        correct: false,
+        tag: "C",
+      },
+      {
+        text: "l’Ukraine",
         correct: true,
         tag: "D",
       },
