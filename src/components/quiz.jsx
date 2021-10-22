@@ -12,7 +12,7 @@ function Quiz({
   Fivety,
 }) {
   const [question, setQestion] = useState(null);
-
+const [isSelect, setIsSelect] = useState(true)
   const [slectedAnswere, setSlectedAnswere] = useState(null);
   const [className, setClassName] = useState("answer");
 
@@ -23,31 +23,38 @@ function Quiz({
   };
 
   const handelClick = (a) => {
-    setSlectedAnswere(a);
-    setPause(true);
-    setClassName("answer active");
-    delay(3000, () => {
-      setClassName(a.correct ? "answer correct" : "answer wrong");
-    });
-    delay(5000, () => {
-      if (a.correct) {
-        Correct();
-        delay(2000, () => {
-          setPause(false);
-          setQuestionNumber((prev) => prev + 1);
-          setSlectedAnswere(null);
-        });
-      } else {
-        Wrong();
-        delay(2000, () => {
-          setStop(true);
-          setPause(false);
-        });
-      }
-    });
+ if (isSelect) {
+   setIsSelect(false)
+  setSlectedAnswere(a);
+  setPause(true);
+  setClassName("answer active");
+  delay(3000, () => {
+    setClassName(a.correct ? "answer correct" : "answer wrong");
+  });
+  delay(5000, () => {
+    if (a.correct) {
+      Correct();
+      delay(4000, () => {
+        setPause(false);
+        setQuestionNumber((prev) => prev + 1);
+        setSlectedAnswere(null);
+      });
+    } else {
+      Wrong();
+      const quest =data[questionNumber - 1];
+      const found = quest.answers.find(a => a.correct===true);
+      document.getElementById(found.tag).classList.add("correctWrong");
+      delay(3000, () => {
+        setStop(true);
+        setPause(false);
+      });
+    }
+  });
+ }   
   };
   useEffect(() => {
     setQestion(data[questionNumber - 1]);
+    setIsSelect(true)
   }, [data, questionNumber,question]);
   useEffect(() => {
     if(Fivety && question){
@@ -60,7 +67,7 @@ function Quiz({
       <div className="question">{question?.question}</div>
       <div className="answers">
         {question?.answers.map((a) => (
-          <div key={a.id}
+          <div key={a.tag} id={a.tag}
             className={slectedAnswere === a ? className : "answer "}
             onClick={() => handelClick(a)}
           >

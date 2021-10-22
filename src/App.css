@@ -216,6 +216,9 @@
     background: crimson;
   }
 }
+.correctWrong{
+  background: green;
+}
 
 .endText {
   position: relative;
@@ -327,5 +330,33 @@
     margin: 10px;
     margin-bottom: 20px;
     cursor: pointer;
+  }
+  .timer{
+    left: 10px;
+    bottom: 0;
+    height:50px ;
+    width: 50px;
+  }
+  .AudianceVote{
+    position: absolute;
+    height: 150px;
+    top:0;
+    left: 0;
+    
+   
+  }
+  .AudianceVote .vote{
+    margin: 10px;
+    background-color: teal;
+    width: 25%;
+    height: 60%;
+    text-align: center;
+  }
+  .replay {
+   font-size: 20px;
+  }
+  
+  .endText {
+    font-size: 20px;
   }
 }

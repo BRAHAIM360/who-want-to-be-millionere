@@ -68,7 +68,7 @@ const data = [
     answers: [
       {
         text: "un site de rencontres",
-        correct: true,
+        correct: false,
         tag: "A",
       },
       {
@@ -419,11 +419,11 @@ function App() {
   const [Fifty, { stop: stop50 }] = useSound(FivetySound, { volume: 0.1 });
   const [AudianceAudio, { stop: AudianceAudioStop }] = useSound(AudianceVoteSound, { volume: 0.1 });
 
-  const [pause, setPause] = useState(false);
+  const [pause, setPause] = useState(true);
   const [dropPyramyd, setDropPyramyd] = useState(false);
   const [call_friend, setCall_friend] = useState(true);
   const [audience_help, setAudience_help] = useState(true);
-  const [audience_help_elment, setAudience_help_elment] = useState(false);
+  const [audience_help_elment, setAudience_help_elment] = useState(true);
   const [audianceCalc, setAudianceCalc] = useState([])
   const [fivety_help, setFivety_help] = useState(false);
  
@@ -463,9 +463,9 @@ function App() {
     stopPhone();
     setFivety_help(false);
     setAudience_help_elment(false)
-    call.current.classList?.remove("anime");
-    audience.current.classList?.remove("anime");
-    fivety.current.classList?.remove("anime");
+    call.current?.classList?.remove("anime");
+    audience.current?.classList?.remove("anime");
+    fivety.current?.classList?.remove("anime");
   }, [MeneyPyramid, questionNumber]);
 
   useEffect(() => {
