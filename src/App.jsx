@@ -1,17 +1,18 @@
 import "./App.css";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Quiz from "./components/quiz";
 import Timer from "./components/Timer";
 import phone from "./assets/phone.mp3";
-
-import main from "./assets/main.mp3";
 import play from "./assets/play.mp3";
+import FivetySound from "./assets/50.mp3";
 import useSound from "use-sound";
-
+import AudianceVote from "./components/AudianceVote";
+import AudianceVoteSound from "./assets/Audiance.mp3"
 const data = [
   {
     id: 1,
-    question: "Dans quel pays peut-on trouver la Catalogne, l’Andalousie et la Castille ?",
+    question:
+      "Dans quel pays peut-on trouver la Catalogne, l’Andalousie et la Castille ?",
     answers: [
       {
         text: "Portugal",
@@ -89,7 +90,8 @@ const data = [
   },
   {
     id: 4,
-    question: "Quel président américain a démissionné après le scandale du Watergate en 1974 ?",
+    question:
+      "Quel président américain a démissionné après le scandale du Watergate en 1974 ?",
     answers: [
       {
         text: "Dwight D. Eisenhower",
@@ -167,7 +169,8 @@ const data = [
   },
   {
     id: 7,
-    question: "Parmi ces quatre pièces de théâtre, laquelle n’a pas été écrite par Molière ?",
+    question:
+      "Parmi ces quatre pièces de théâtre, laquelle n’a pas été écrite par Molière ?",
     answers: [
       {
         text: "Le Jeu de l’amour et du hasard",
@@ -219,7 +222,8 @@ const data = [
   },
   {
     id: 9,
-    question: "En France, la taxe foncière constitue un impôt perçu au profit :",
+    question:
+      "En France, la taxe foncière constitue un impôt perçu au profit :",
     answers: [
       {
         text: "de la Sécurité sociale.",
@@ -245,7 +249,8 @@ const data = [
   },
   {
     id: 10,
-    question: "Quel est le point commun entre ces quatre personnalités ? Geneviève De Gaulle Anthonioz – Marie Curie – Germaine Tillion – Sophie Berthelot",
+    question:
+      "Quel est le point commun entre ces quatre personnalités ? Geneviève De Gaulle Anthonioz – Marie Curie – Germaine Tillion – Sophie Berthelot",
     answers: [
       {
         text: "Elles ont été choisies pour entrer au Panthéon.",
@@ -297,7 +302,8 @@ const data = [
   },
   {
     id: 12,
-    question: "Parmi ces sites, inscrits au patrimoine mondial de l’Unesco, lequel abrite un mausolée ?",
+    question:
+      "Parmi ces sites, inscrits au patrimoine mondial de l’Unesco, lequel abrite un mausolée ?",
     answers: [
       {
         text: "le Taj Mahal",
@@ -349,7 +355,8 @@ const data = [
   },
   {
     id: 14,
-    question: "Quel endroit était la principale place publique administrative, religieuse et commerciale des villes grecques antiques ?",
+    question:
+      "Quel endroit était la principale place publique administrative, religieuse et commerciale des villes grecques antiques ?",
     answers: [
       {
         text: "l’acropole",
@@ -375,7 +382,8 @@ const data = [
   },
   {
     id: 15,
-    question: "Lequel de ces pays n’a pas de façade maritime avec la mer Noire ?",
+    question:
+      "Lequel de ces pays n’a pas de façade maritime avec la mer Noire ?",
     answers: [
       {
         text: "la Bulgarie",
@@ -404,10 +412,26 @@ const data = [
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [timeOut, setTimeOut] = useState(false);
-  const [stop, setStop] = useState(false);
+  const [stopp, setStop] = useState(false);
   const [earned, setEarned] = useState("DA 0");
-  const [letsPlay] = useSound(play,{volume:0.1});
-  const [Main] = useSound(main);
+  const [letsPlay] = useSound(play, { volume: 0.1 });
+  const [Phone, { stop: stopPhone }] = useSound(phone, { volume: 0.1 });
+  const [Fifty, { stop: stop50 }] = useSound(FivetySound, { volume: 0.1 });
+  const [AudianceAudio, { stop: AudianceAudioStop }] = useSound(AudianceVoteSound, { volume: 0.1 });
+
+  const [pause, setPause] = useState(false);
+  const [dropPyramyd, setDropPyramyd] = useState(false);
+  const [call_friend, setCall_friend] = useState(true);
+  const [audience_help, setAudience_help] = useState(true);
+  const [audience_help_elment, setAudience_help_elment] = useState(false);
+  const [audianceCalc, setAudianceCalc] = useState([])
+  const [fivety_help, setFivety_help] = useState(false);
+ 
+  const call = useRef();
+  const fivety = useRef();
+  const audience = useRef();
+  const [timer, setTimer] = useState(30);
+  const [Fivety, setFivety] = useState(true);
 
   const MeneyPyramid = useMemo(
     () =>
@@ -434,16 +458,68 @@ function App() {
   useEffect(() => {
     questionNumber > 1 &&
       setEarned(MeneyPyramid.find((m) => m.id === questionNumber - 1).amount);
+      AudianceAudioStop()
+    stop50();
+    stopPhone();
+    setFivety_help(false);
+    setAudience_help_elment(false)
+    call.current.classList?.remove("anime");
+    audience.current.classList?.remove("anime");
+    fivety.current.classList?.remove("anime");
   }, [MeneyPyramid, questionNumber]);
 
   useEffect(() => {
     letsPlay();
-  }, [letsPlay],);
+  }, [letsPlay]);
+
+  const audianceFunction = (question) => {
+    const newArray = [];
+    question.answers.map((a) =>
+      a.correct
+        ?  newArray.push({
+            id: a.tag,
+            pource: Math.floor(Math.random() * (90 - 65) + 65),
+          })
+        : newArray.push({
+            id: a.tag,
+            pource: Math.floor(Math.random() * (60 - 30) + 30),
+          })
+    );
+    setAudianceCalc(newArray)
+  };
+  const handelCall = (e) => {
+    if (call_friend) {
+      setCall_friend(false);
+      setTimer(45);
+      Phone();
+      e.currentTarget.classList.add("anime");
+      e.currentTarget.src = "./images/calldes.png";
+    }
+  };
+  const handelAudience = (e) => {
+    if (audience_help) {
+      AudianceAudio()
+      setTimer(35);
+      e.currentTarget.classList.add("anime");
+      e.currentTarget.src = "./images/audiencedes.png";
+      audianceFunction( data[questionNumber - 1])
+
+      setAudience_help_elment(true)
+    }
+  };
+  const handelFivety = (e) => {
+    if (!fivety_help) {
+      Fifty();
+      setFivety_help(true);
+      e.currentTarget.classList.add("anime");
+      e.currentTarget.src = "./images/50des.png";
+    }
+  };
 
   return (
     <div className="app">
       <div className="main">
-        {stop ? (
+        {stopp ? (
           <>
             <h1 className="endText">
               {" "}
@@ -451,9 +527,8 @@ function App() {
               <div
                 className="replay"
                 onClick={() => {
-                  setStop(false);
+                  letsPlay();
                   setQuestionNumber(1);
-                  letsPlay()
                 }}
               >
                 Rejoué
@@ -463,8 +538,38 @@ function App() {
         ) : (
           <>
             <div className="top">
+              <div className="help">
+                <img
+                  className="call"
+                  src="./images/call.png"
+                  call={call_friend}
+                  ref={call}
+                  onClick={(e) => handelCall(e)}
+                />
+                <img
+                  className="call"
+                  src="./images/50.png"
+                  ref={fivety}
+                  onClick={(e) => handelFivety(e)}
+                />
+                <img
+                  className="call"
+                  src="./images/audience.png"
+                  ref={audience}
+                  onClick={(e) => handelAudience(e)}
+                />
+              </div>
+              {audience_help_elment && (
+                <AudianceVote question={audianceCalc} />
+              )}
               <div className="timer">
-                <Timer setStop={setStop} questionNumber={questionNumber} />
+                <Timer
+                  timer={timer}
+                  setTimer={setTimer}
+                  setStop={setStop}
+                  questionNumber={questionNumber}
+                  pause={pause}
+                />
               </div>
             </div>
             <div className="bottom">
@@ -473,13 +578,18 @@ function App() {
                 setStop={setStop}
                 setQuestionNumber={setQuestionNumber}
                 questionNumber={questionNumber}
+                setPause={setPause}
+                Fivety={fivety_help}
               />{" "}
             </div>{" "}
           </>
         )}
       </div>
 
-      <div className="pyramid">
+      <div
+        className={dropPyramyd ? "pyramid activateMenu" : "pyramid "}
+        onClick={() => setDropPyramyd(!dropPyramyd)}
+      >
         <ul className="moneyList">
           {MeneyPyramid.map((m) => (
             <li
@@ -490,8 +600,8 @@ function App() {
               }
               key={m.id}
             >
-              <span className="moneyListItemNumber">{m.id} </span>
-              <span className="moneyListItemAmount">{m.amount}</span>
+              <span className="moneyListItemNumber ">{m.id} </span>
+              <span className="moneyListItemAmount ">{m.amount}</span>
             </li>
           ))}
         </ul>
