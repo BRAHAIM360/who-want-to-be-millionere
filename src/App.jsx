@@ -529,6 +529,7 @@ function App() {
                 onClick={() => {
                   letsPlay();
                   setQuestionNumber(1);
+                  setStop();
                 }}
               >
                 Rejoué
