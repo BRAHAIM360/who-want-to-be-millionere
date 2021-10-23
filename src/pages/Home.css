@@ -1,0 +1,49 @@
+.maine {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
+    url("../assets/bg.jpg") center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.container {
+  width: 20%;
+  height: auto;
+  padding: 10px;
+  background: linear-gradient(#0e0124, #22074d);
+  border: 1px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 40px;
+  text-decoration: none;
+
+}
+.container:hover {
+  background: linear-gradient(#345330, #1b940c);
+}
+.container img {
+  height: 20vh;
+}
+#ar {
+  transform: scale(1.1);
+}
+#background-video {
+  width: 100%;
+  float: left;
+  top: 0;
+  padding: none;
+  position: fixed;
+}
+@media (max-width: 550px) {
+  .maine {
+    flex-direction: column;
+  }
+  .container {
+    width: auto;
+  }
+}

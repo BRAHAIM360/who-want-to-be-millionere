@@ -8,7 +8,7 @@
 .main {
   width: 75%;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
-    url("assets/bg.jpg") center;
+    url("../assets/bg.jpg") center;
   display: flex;
   flex-direction: column;
 }

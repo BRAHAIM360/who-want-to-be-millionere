@@ -10,6 +10,7 @@ function Quiz({
   questionNumber,
   setPause,
   Fivety,
+  setFivety
 }) {
   const [question, setQestion] = useState(null);
 const [isSelect, setIsSelect] = useState(true)
@@ -37,6 +38,8 @@ const [isSelect, setIsSelect] = useState(true)
       delay(4000, () => {
         setPause(false);
         setQuestionNumber((prev) => prev + 1);
+        questionNumber===15 && setStop(true)
+        console.log(questionNumber)
         setSlectedAnswere(null);
       });
     } else {
@@ -57,7 +60,7 @@ const [isSelect, setIsSelect] = useState(true)
     setIsSelect(true)
   }, [data, questionNumber,question]);
   useEffect(() => {
-    if(Fivety && question){
+    if(!Fivety && question){
       question.answers[0].correct ? question.answers[1].text="" :question.answers[0].text=""
       question.answers[2].correct ? question.answers[3].text="" :question.answers[2].text=""
     }
