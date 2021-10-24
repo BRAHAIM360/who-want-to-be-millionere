@@ -17,8 +17,8 @@ const [isSelect, setIsSelect] = useState(true)
   const [slectedAnswere, setSlectedAnswere] = useState(null);
   const [className, setClassName] = useState("answer");
 
-  const [Wrong] = useSound(wrong, { volume: 0.1 });
-  const [Correct] = useSound(correct, { volume: 0.1 });
+  const [Wrong] = useSound(wrong);
+  const [Correct] = useSound(correct);
   const delay = (duration, callback) => {
     setTimeout(() => callback(), duration);
   };

@@ -26,12 +26,11 @@ function App() {
   const [timeOut, setTimeOut] = useState(false);
   const [stopp, setStop] = useState(false);
   const [earned, setEarned] = useState("DA 0");
-  const [letsPlay] = useSound(play, { volume: 0.1 });
-  const [Phone, { stop: stopPhone }] = useSound(phone, { volume: 0.1 });
-  const [Fifty, { stop: stop50 }] = useSound(FivetySound, { volume: 0.1 });
+  const [letsPlay] = useSound(play);
+  const [Phone, { stop: stopPhone }] = useSound(phone);
+  const [Fifty, { stop: stop50 }] = useSound(FivetySound);
   const [AudianceAudio, { stop: AudianceAudioStop }] = useSound(
     AudianceVoteSound,
-    { volume: 0.1 }
   );
 
   const [pause, setPause] = useState(false);
