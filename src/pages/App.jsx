@@ -21,12 +21,21 @@ function App() {
     data = dataAR;
     document.body.dir = "rtl";
   }
+  const stop_sound=()=>{
+    AudianceAudioStop()
+    stopPlay()
+    stopPhone()
+    stop50()
+  }
 
+  useEffect(() => {
+    letsPlay();
+  },[]);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [timeOut, setTimeOut] = useState(false);
   const [stopp, setStop] = useState(false);
   const [earned, setEarned] = useState("DA 0");
-  const [letsPlay] = useSound(play);
+  const [letsPlay , { stop: stopPlay }] = useSound(play);
   const [Phone, { stop: stopPhone }] = useSound(phone);
   const [Fifty, { stop: stop50 }] = useSound(FivetySound);
   const [AudianceAudio, { stop: AudianceAudioStop }] = useSound(
@@ -88,6 +97,7 @@ function App() {
       }
     }
   };
+  
   useEffect(() => {
     setLang(window.location.pathname.substr(1));
     questionNumber > 1 &&
@@ -119,6 +129,7 @@ function App() {
   };
   const handelCall = (e) => {
     if (call_friend) {
+      stop_sound()//to stop any playing sound
       setCall_friend(false);
       setTimer(45);
       Phone();
@@ -128,6 +139,7 @@ function App() {
   };
   const handelAudience = (e) => {
     if (audience_help) {
+      stop_sound()//to stop any playing sound
       AudianceAudio();
       setTimer(35);
       e.currentTarget.classList.add("anime");
@@ -139,6 +151,7 @@ function App() {
   };
   const handelFivety = (e) => {
     if (Fivety) {
+      stop_sound()//to stop any playing sound
       Fifty();
       setFivety(false);
       e.currentTarget.classList.add("anime");
@@ -161,6 +174,7 @@ function App() {
               <div
                 className="replay"
                 onClick={() => {
+                  stop_sound()//to stop any playing sound
                   letsPlay();
                   setQuestionNumber(1);
                   setStop();
@@ -213,6 +227,7 @@ function App() {
                 setPause={setPause}
                 Fivety={Fivety}
                 setFivety={setFivety}
+                stop_sound={stop_sound}
               />{" "}
             </div>{" "}
           </>

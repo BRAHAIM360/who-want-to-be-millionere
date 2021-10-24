@@ -10,7 +10,8 @@ function Quiz({
   questionNumber,
   setPause,
   Fivety,
-  setFivety
+  setFivety,
+  stop_sound
 }) {
   const [question, setQestion] = useState(null);
 const [isSelect, setIsSelect] = useState(true)
@@ -34,6 +35,7 @@ const [isSelect, setIsSelect] = useState(true)
   });
   delay(5000, () => {
     if (a.correct) {
+      stop_sound()
       Correct();
       delay(4000, () => {
         setPause(false);
@@ -43,6 +45,7 @@ const [isSelect, setIsSelect] = useState(true)
         setSlectedAnswere(null);
       });
     } else {
+      stop_sound()
       Wrong();
       const quest =data[questionNumber - 1];
       const found = quest.answers.find(a => a.correct===true);
