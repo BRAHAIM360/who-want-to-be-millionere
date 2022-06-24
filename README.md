@@ -1,7 +1,7 @@
 # WHO WANT TO BE MILLIONAIR
 
 WHO WANT TO BE MILLIONAIR REACT APP MULTILINGUAL
-I created this project for fun to chanlenge my frinds that if they win , i will give them 1 million DZ centimes
+Is a project i have created for fun to chanlenge my frinds that if they win , i will give them 1 million DZ centimes
 
 [Live Demo](https://quiz.mahioussi.com/)
 
